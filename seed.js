@@ -8,7 +8,6 @@ var beerPlaces= [
     lat: 37.782257,
     long: -122.392395,
     rating: 0,
-    type: ['brewery']
   },
   {
     name: 'Ales Unlimited',
@@ -16,7 +15,6 @@ var beerPlaces= [
     lat: 37.792579,
     long: -122.432745,
     rating: 0,
-    type: ['bottleshop']
   },
   {
     name: 'Almanac Beer Co',
@@ -24,7 +22,6 @@ var beerPlaces= [
     lat: 37.760059,
     long: -122.388303,
     rating: 0,
-    type: ['brewery']
   },
   {
     name: 'Anchor Brewing Co.',
@@ -32,7 +29,6 @@ var beerPlaces= [
     lat: 37.763718,
     long: -122.400528,
     rating: 0,
-    type: ['brewery']
   },
   {
     name: 'Armstrong Brewing Company',
@@ -40,7 +36,6 @@ var beerPlaces= [
     lat: 37.6556785,
     long: -122.4831321,
     rating: 0,
-    type: ['brewery']
   },
   {
     name: 'Barebottle Brewing Company',
@@ -48,7 +43,6 @@ var beerPlaces= [
     lat: 37.7400643,
     long: -122.479043,
     rating: 0,
-    type: ['brewery']
   },
   {
     name: 'Barrel Head Brewhouse',
@@ -56,7 +50,6 @@ var beerPlaces= [
     lat: 37.7757363,
     long: -122.516138,
     rating: 0,
-    type: ['brewpub']
   },
   {
     name: 'Beach Chalet and Park Chalet',
@@ -64,7 +57,6 @@ var beerPlaces= [
     lat: 37.769400,
     long: -122.510550,
     rating: 0,
-    type: ['brewpub']
   },
   {
     name: 'The Beer Hall',
@@ -72,7 +64,6 @@ var beerPlaces= [
     lat: 37.7767873,
     long: -122.4881005,
     rating: 0,
-    type: ['taproom', 'bottleshop']
   },
   {
     name: 'Black Hammer Brewing',
@@ -80,7 +71,6 @@ var beerPlaces= [
     lat: 37.7806838,
     long: -122.4671149,
     rating: 0,
-    type: ['brewery']
   },
   {
     name: 'Black Sands Brewery',
@@ -88,7 +78,6 @@ var beerPlaces= [
     lat: 37.7714343,
     long: -122.503895,
     rating: 0,
-    type: ['brewpub']
   },
   {
     name: 'Blueprint Tap Room',
@@ -96,7 +85,6 @@ var beerPlaces= [
     lat: 37.770366,
     long: -122.404629,
     rating: 0,
-    type: ['taproom']
   },
   {
     name: 'Brewcade',
@@ -104,7 +92,6 @@ var beerPlaces= [
     lat: 37.7657703,
     long: -122.501557,
     rating: 0,
-    type: ['taproom']
   },
   {
     name: 'City Beer Store and Tasting Room',
@@ -112,7 +99,6 @@ var beerPlaces= [
     lat: 37.775768,
     long: -122.409409,
     rating: 0,
-    type: ['taproom', 'bottleshop']
   },
   {
     name: 'Cellarmaker Brewing Co',
@@ -120,7 +106,6 @@ var beerPlaces= [
     lat: 37.777218,
     long: -122.410768,
     rating: 0,
-    type: ['brewery']
   },
   {
     name: 'Elizabeth Street Brewery ESB',
@@ -128,7 +113,6 @@ var beerPlaces= [
     lat: 37.752047,
     long: -122.438425,
     rating: 0,
-    type: ['brewery']
   },
   {
     name: 'Fat Angel',
@@ -136,7 +120,6 @@ var beerPlaces= [
     lat: 37.783342,
     long: -122.433182,
     rating: 0,
-    type: ['taproom', 'bottleshop']
   },
   {
     name: 'Fort Point Beer Company',
@@ -144,7 +127,6 @@ var beerPlaces= [
     lat: 37.8030566,
     long: -122.5348943,
     rating: 0,
-    type: ['brewery']
   },
   {
     name: 'Gestalt Haus',
@@ -152,7 +134,6 @@ var beerPlaces= [
     lat: 37.764851,
     long: -122.423476,
     rating: 0,
-    type: ['taproom']
   },
   {
     name: 'Golden Gate Tap Room',
@@ -160,7 +141,6 @@ var beerPlaces= [
     lat: 37.788933,
     long: -122.408957,
     rating: 0,
-    type: ['taproom']
   },
   {
     name: 'Harmonic Brewing',
@@ -168,7 +148,6 @@ var beerPlaces= [
     lat: 37.7516029,
     long: -122.4600715,
     rating: 0,
-    type: ['brewery']
   },
   {
     name: 'Hogwash',
@@ -176,7 +155,6 @@ var beerPlaces= [
     lat: 37.7891647,
     long: -122.4799598,
     rating: 0,
-    type: ['taproom']
   },
   {
     name: 'Hopwater Distribution',
@@ -184,7 +162,6 @@ var beerPlaces= [
     lat: 37.7900197,
     long: -122.4814119,
     rating: 0,
-    type: ['taproom']
   },
   {
     name: "Jasper's Corner Tap & Kitchen",
@@ -192,7 +169,6 @@ var beerPlaces= [
     lat: 37.7861056,
     long: -122.48159,
     rating: 0,
-    type: ['taproom']
   },
   {
     name: 'The Jug Shop',
@@ -200,7 +176,6 @@ var beerPlaces= [
     lat: 37.795231,
     long: -122.420708,
     rating: 0,
-    type: ['bottleshop']
   },
   {
     name: 'LaTrappe Restaurant Bar',
@@ -208,7 +183,6 @@ var beerPlaces= [
     lat: 37.801886,
     long: -122.412869,
     rating: 0,
-    type: ['taproom']
   },
   {
     name: 'Laughing Monk Brewing',
@@ -216,7 +190,6 @@ var beerPlaces= [
     lat: 37.7229731,
     long: -122.4635255,
     rating: 0,
-    type: ['brewery']
   },
   {
     name: 'Liquid Gold',
@@ -224,7 +197,6 @@ var beerPlaces= [
     lat: 37.7906032,
     long: -122.4193008,
     rating: 0,
-    type: ['taproom', 'bottleshop']
   },
   {
     name: 'Local Brewing Co',
@@ -232,7 +204,6 @@ var beerPlaces= [
     lat: 37.776469,
     long: -122.4672,
     rating: 0,
-    type: ['brewery']
   },
   {
     name: 'Magnolia Pub and Brewery',
@@ -240,7 +211,6 @@ var beerPlaces= [
     lat:  37.770130,
     long: -122.445084,
     rating: 0,
-    type: ['brewery']
   },
   {
     name: 'Mikkeller Bar SF',
@@ -248,7 +218,6 @@ var beerPlaces= [
     lat: 37.783976,
     long: -122.408981,
     rating: 0,
-    type: ['taproom', 'bottleshop']
   },
   {
     name: "Monk's Kettle",
@@ -256,7 +225,6 @@ var beerPlaces= [
     lat: 37.764880,
     long: -122.422851,
     rating: 0,
-    type: ['taproom']
   },
   {
     name: 'The Page',
@@ -264,7 +232,6 @@ var beerPlaces= [
     lat: 37.772189,
     long: -122.437196,
     rating: 0,
-    type: ['taproom']
   },
   {
     name: 'Pi Bar',
@@ -272,7 +239,6 @@ var beerPlaces= [
     lat: 37.749908,
     long: -122.420748,
     rating: 0,
-    type: ['taproom']
   },
   {
     name: 'Public House',
@@ -280,7 +246,6 @@ var beerPlaces= [
     lat: 37.778644,
     long: -122.389380,
     rating: 0,
-    type: ['taproom']
   },
   {
     name: 'Richmond Republic Draught House',
@@ -288,7 +253,6 @@ var beerPlaces= [
     lat: 37.7830912,
     long: -122.536291,
     rating: 0,
-    type: ['taproom']
   },
   {
     name: 'Rogue Ales Public House',
@@ -296,7 +260,6 @@ var beerPlaces= [
     lat: 37.800385,
     long: -122.410385,
     rating: 0,
-    type: ['taproom', 'bottleshop']
   },
   {
     name: 'Sessions at the Presidio',
@@ -304,7 +267,6 @@ var beerPlaces= [
     lat: 37.7992595,
     long: -122.5179878,
     rating: 0,
-    type: ['taproom', 'bottleshop']
   },
   {
     name: 'Social Kitchen & Brewery',
@@ -312,7 +274,6 @@ var beerPlaces= [
     lat: 37.7634894,
     long: -122.5361535,
     rating: 0,
-    type: ['brewery']
   },
   {
     name: 'Southern Pacific Brewing',
@@ -320,7 +281,6 @@ var beerPlaces= [
     lat: 37.7600819,
     long: -122.4842658,
     rating: 0,
-    type: ['brewery']
   },
   {
     name: 'Speakeasy Ales and Lagers',
@@ -328,7 +288,6 @@ var beerPlaces= [
     lat: 37.738888,
     long: -122.380913,
     rating: 0,
-    type: ['brewery']
   },
   {
     name: 'Sunset Reservoir Brewing Company',
@@ -336,7 +295,6 @@ var beerPlaces= [
     lat: 37.7537409,
     long: -122.5524514,
     rating: 0,
-    type: ['brewpub']
   },
   {
     name: 'Suppenkuche',
@@ -344,7 +302,6 @@ var beerPlaces= [
     lat: 37.776260,
     long: -122.426285,
     rating: 0,
-    type: ['taproom']
   },
   {
     name: 'Thirsty Bear Brewing Company',
@@ -352,7 +309,6 @@ var beerPlaces= [
     lat: 37.785664,
     long: -122.399605,
     rating: 0,
-    type: ['brewery']
   },
   {
     name: 'Toronado',
@@ -360,7 +316,6 @@ var beerPlaces= [
     lat: 37.772034,
     long: -122.431084,
     rating: 0,
-    type: ['taproom']
   },
   {
     name: 'Triple Voodoo Brewery and Tap Room',
@@ -368,7 +323,6 @@ var beerPlaces= [
     lat: 37.761190,
     long: -122.388537,
     rating: 0,
-    type: ['brewery']
   },
   {
     name: 'Woods Cerveceria',
@@ -376,7 +330,6 @@ var beerPlaces= [
     lat: 37.7610878,
     long: -122.4985094,
     rating: 0,
-    type: ['brewpub']
   },
   {
     name: 'Zeitgeist',
@@ -384,7 +337,6 @@ var beerPlaces= [
     lat: 37.769928,
     long: -122.422279,
     rating: 0,
-    type: ['taproom']
   }
 
 ];
