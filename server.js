@@ -3,6 +3,11 @@ var express = require('express'),
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
+var mongoose = require('mongoose');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 //serve static files from public folder
 app.use(express.static(__dirname + '/public'));

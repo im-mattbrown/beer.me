@@ -1,37 +1,35 @@
 console.log("sanity check");
 
 var template;
-var $locations;
-var allLocations= [];
+var $locations =
+// var allLocations= [];
 
 $(document).ready(function() {
-  console.log('app.js loaded!');
   $locations = $('#locations');
+  console.log('app.js loaded!');
   var source = $('#location-template').html();
   template = Handlebars.compile(source);
 
-  function renderLocation(location) {
-    var html = template(location);
-    $locations.prepend(html);
-  }
-
-});
-
-
-$.get("/api/albums", onSuccess);
-  function onSuccess(json){
-    json.forEach(function (location){
-      renderLocation(location);
+  $.ajax({
+      method: 'GET',
+      url: '/api/locations',
+      dataType: 'json',
+      success: handleSuccess,
+      //error: handleError
     });
+
+  function renderLocation(locations) {
+    $locations.empty();
+    console.log(locations);
+    var html = template({locations: locations});
+    console.log(html);
+    $locations.append(html);
   }
 
-
-// function renderLocation(location) {
-//   var html = template(location);
-//   $locations.prepend(html);
-// }
-
-
+  function handleSuccess(json){
+    renderLocation(json);
+  }
+});
 
 function createMap(){
   map = new google.maps.Map(document.getElementById('map'),{
