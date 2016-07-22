@@ -346,10 +346,14 @@ db.Location.remove({}, function(err, removedLocations) {
   db.Location.create(beerPlaces, function(err, createdLocations) {
     if(err){return console.log("ERROR: ", err);}
     console.log(createdLocations);
-    beerPlaces.forEach(function(place) {
+    beerPlaces.forEach(function(location) {
       var searchParam = {name: location.name};
-      db.Album.findOne(searchParam, function(err, place){
+      db.Location.findOne(searchParam, function(err, place){
         if(err){return console.log("ERROR: ", err);}
+          place.save(function(err, savedLocation){
+            if(err){return console.log("ERROR: ", err);}
+            console.log(savedLocation);
+          });
       });
     });
   });

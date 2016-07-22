@@ -3,12 +3,15 @@ db = require('../models');
 function index(req, res) {
   db.Location.find(function (err, locations){
     if (err) { return console.log("index error: " + err);}
-    res.json(albums);
+    res.json(locations);
   });
 }
 
 function create(req, res) {
-
+  db.Location.create(req.body, function(err,newLocation) {
+    if (err) { return console.log("show error: " + err); }
+    res.json(newLocation);
+  });
 }
 
 function show(req, res) {
