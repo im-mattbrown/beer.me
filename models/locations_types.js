@@ -9,17 +9,17 @@ Locations_TypesSchema = new Schema({
   _type: {type: Schema.Types.ObjectId, ref: "Type"}
 });
 
-Toronado._id = 123456789
+// Toronado._id = 123456789;
+//
+// Taproom._id = 0987654321;
+//
+// joinTable = {
+//   _location = Toronado._id,
+//   _type = Taproom._id
+// };
 
-Taproom._id = 0987654321
-
-joinTable = {
-  _location = Toronado._id,
-  _type = Taproom._id
-};
 
 
+//Locations_Types.create(joinTable, function(err,succcess) {
 
-Locations_Types.create(joinTable, function(err,succcess) {
-
-}
+//});

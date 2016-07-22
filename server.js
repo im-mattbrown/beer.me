@@ -23,6 +23,9 @@ app.get('/api', controllers.api.index);
 
 app.get('/api/locations', controllers.locations.index);
 
+app.get('/api/locations/:locationId', controllers.locations.show);
+
+app.post('/api/locations', controllers.locations.create);
 
 //listen on port 3000
 app.listen(process.env.PORT || 3000);

@@ -12,7 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 
-    <!--<script src="/scripts/app.js"</script>-->
+    <!--<script type="text/javascript" src="/scripts/app.js"</script>-->
   </head>
   <body>
     <div class="jumbotron">
@@ -28,7 +28,47 @@
 
     <h2> Craft Beer Destinations </h2>
     <div id="map"></div>
+    <div id="locations">
+        <script id="location-template" type="text/x-handlebars-template">
+            \{{#each locations}}
+              <li class="list-group-item post" data-id="\{{_id}}">
 
+                <!-- post label (title) -->
+                <span class="label label-default">\{{name}}</span>
 
+                <!-- post description -->
+                \{{location}}
+
+                <div class="pull-right">
+                  <!-- pencil icon to toggle update form -->
+                  <a href="javascript:void(0)" data-toggle="collapse" data-target="#update-\{{_id}}">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                  </a>
+
+                  <!-- trash can icon to delete post -->
+                   <a href="javascript:void(0)" class="delete-post">
+                    <span class="glyphicon glyphicon-trash"></span>
+                  </a>
+                </div>
+
+                <!-- form to update post -->
+                <div class="collapse" id="update-\{{_id}}">
+                  <br>
+                  <form class="form-inline update-post">
+                    <div class="form-group">
+                      <input type="text" name="title" class="form-control" placeholder="Name" value="\{{name}}">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" name="description" class="form-control" placeholder="Address" value="\{{location}}">
+                    </div>
+                    <div class="form-group">
+                      <input type="submit" class="btn btn-block btn-default" value="Update">
+                    </div>
+                  </form>
+                </div>
+              </li>
+            \{{/each}}
+        </script>
+    </div>
   </body>
 </html>
