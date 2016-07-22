@@ -1,5 +1,5 @@
 
-
+var db = require("./models");
 
 var beerPlaces= [
   {
@@ -338,5 +338,19 @@ var beerPlaces= [
     long: -122.422279,
     rating: 0,
   }
-
 ];
+
+db.Location.remove({}, function(err, removedLocations) {
+  if(err){return console.log("ERROR: ", err);}
+  console.log("Removed locations...");
+  db.Location.create(beerPlaces, function(err, createdLocations) {
+    if(err){return console.log("ERROR: ", err);}
+    console.log(createdLocations);
+    beerPlaces.forEach(function(place) {
+      var searchParam = {name: location.name};
+      db.Album.findOne(searchParam, function(err, place){
+        if(err){return console.log("ERROR: ", err);}
+      });
+    });
+  });
+});

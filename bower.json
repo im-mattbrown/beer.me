@@ -1,0 +1,17 @@
+{
+  "name": "brewfinder",
+  "description": "beer destination search engine",
+  "main": "server.js",
+  "authors": [
+    "Matt Brown"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/mattericbrown/Brewfinder",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
