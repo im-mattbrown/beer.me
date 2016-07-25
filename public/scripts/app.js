@@ -23,7 +23,7 @@ $(document).ready(function() {
       method: 'POST',
       url: '/api/locations',
       data: $(this).serialize(),
-      succcess: newLocationSuccess
+      succcess: newLocationSuccess1
     });
   });
 

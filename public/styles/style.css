@@ -8,9 +8,14 @@ h1{
 #map {
   width: 75%;
   height: 600px;
-  margin-left: 12.5%
+  margin-left: 13%
 }
 
 .filters{
 
+}
+
+#delete {
+  background-color: rgb (238,238,238);
+  font-weight: bold;
 }
