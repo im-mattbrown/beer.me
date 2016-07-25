@@ -32,7 +32,7 @@ app.get('/api/locations/:locationId', controllers.locations.show);
 
 app.post('/api/locations', controllers.locations.create);
 
-app.delete('/api/locations/:locationId', controllers.locations.destroy);
+app.delete('/api/locations/:id', controllers.locations.destroy);
 
 app.put('/api/locations:locationId', controllers.locations.update);
 

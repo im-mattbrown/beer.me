@@ -1,15 +1,12 @@
 console.log("sanity check");
-console.log(google);
 var template;
 var $locations;
-var $pins;
 var map;
 var allLocations = [];
 
 
 $(document).ready(function() {
   $locations = $('#locations');
-  console.log('app.js loaded!');
   var source = $('#location-template').html();
   template = Handlebars.compile(source);
 
@@ -18,57 +15,67 @@ $(document).ready(function() {
       url: '/api/locations',
       dataType: 'json',
       success: handleSuccess,
-      //error: handleError
     });
+
   $('#locationForm').on('submit', function(e){
     e.preventDefault();
     $.ajax({
       method: 'POST',
-      url: '/api/albums',
+      url: '/api/locations',
       data: $(this).serialize(),
       succcess: newLocationSuccess
     });
   });
 
-  function newLocationSuccess(json){
-    $('#locationForm input').val('');
-    allLocations.push(json);
-    renderLocation(allLocations);
-  }
-
-  function renderLocation(locations) {
-    $locations.empty();
-    console.log(locations);
-    var html = template({locations: locations});
-    locations.forEach(function (location){
-      var marker = new google.maps.Marker({
-        position: {lat: location.lat, lng: location.long},
-        map:map,
-        title: location.name
-      });
+  $locations.on('click', '.deleteBtn', function() {
+    $.ajax({
+      method: 'DELETE',
+      url:'/api/locations/'+$(this).attr('data-id'),
+      succcess: 'deleteLocationSuccess',
     });
-    $locations.append(html);
-  }
+  });
 
-  function handleSuccess(json){
-    renderLocation(json);
-  }
-  function handleError(){
-    console.log('error loading locations');
-  }
-  initMap();
+initMap();
 });
 
-function createMarkers(locationArray, pin){
-  locationArray.forEach(function(location){
-    var tempLat = location.lat;
-    var tempLng = location.long;
-  });
-    var tempMarker = new google.maps.Marker({
-      position: new google.maps.LatLng(tempLat, tempLng),
-      map: map,
-      title: location.name,
+function renderLocation(locations) {
+  $locations.empty();
+  var html = template({locations: locations});
+  locations.forEach(function (location){
+    var marker = new google.maps.Marker({
+      position: {lat: location.lat, lng: location.long},
+      map:map,
+      title: location.name
     });
+  });
+  $locations.prepend(html);
+}
+
+function handleSuccess(json){
+  renderLocation(json);
+}
+
+function newLocationSuccess(json){
+  $('#locationForm input').val('');
+  allLocations.push(json);
+  renderLocation(allLocations);
+}
+
+function handleError(){
+  console.log('error loading locations');
+}
+
+function deleteBrewerySuccess(json) {
+  var location = json;
+  var locationId = location._id;
+
+  for(var index = 0; index < allLocations.length; index++) {
+    if(allLocations[index]._id === breweryId) {
+      allLocations.splice(index, 1);
+      break;
+    }
+  }
+  render(location);
 }
 
 function initMap() {
