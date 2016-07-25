@@ -8,8 +8,10 @@ function index(req, res) {
 }
 
 function create(req, res) {
-  db.Location.create(req.body, function(err,newLocation) {
+  var locationInput = req.body;
+  db.Location.create(locationInput, function(err,newLocation) {
     if (err) { return console.log("show error: " + err); }
+    console.log(newLocation);
     res.json(newLocation);
   });
 }

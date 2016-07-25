@@ -19,12 +19,15 @@ $(document).ready(function() {
 
   $('#locationForm').on('submit', function(e){
     e.preventDefault();
+    console.log("Submit Clicked...");
     $.ajax({
       method: 'POST',
       url: '/api/locations',
       data: $(this).serialize(),
-      succcess: newLocationSuccess1
+      success: newLocationSuccess
     });
+    $('#locationForm input').val('');
+
   });
 
   $locations.on('click', '.deleteBtn', function() {
@@ -35,37 +38,46 @@ $(document).ready(function() {
     });
   });
 
-initMap();
+  $locations.on('click', '.edit-location', handleLocationEditClick);
+
+initializeMap();
 });
 
-function renderLocation(locations) {
+function handleSuccess(json){
   $locations.empty();
-  var html = template({locations: locations});
-  locations.forEach(function (location){
+  var locations = json;
+  locations.forEach(function(location){
+    renderLocation(location);
+
+  });
+}
+
+function newLocationSuccess(json){
+  var location = json;
+  renderLocation(location);
+
+}
+
+// takes ONE single location and renders it to the page
+function renderLocation(location) {
+
+    var html = template(location);
+    $locations.append(html);
+
     var marker = new google.maps.Marker({
       position: {lat: location.lat, lng: location.long},
       map:map,
       title: location.name
     });
-  });
-  $locations.prepend(html);
+
 }
 
-function handleSuccess(json){
-  renderLocation(json);
-}
-
-function newLocationSuccess(json){
-  $('#locationForm input').val('');
-  allLocations.push(json);
-  renderLocation(allLocations);
-}
 
 function handleError(){
   console.log('error loading locations');
 }
 
-function deleteBrewerySuccess(json) {
+function deleteLocationSuccess(json) {
   var location = json;
   var locationId = location._id;
 
@@ -75,10 +87,24 @@ function deleteBrewerySuccess(json) {
       break;
     }
   }
-  render(location);
 }
 
-function initMap() {
+function handleLocationEditClick(data) {
+  var locationId = location._id;
+  $('[]');
+}
+
+navigator.geolocation.getCurrentPosition(function(position) {
+ console.log(position.coords.latitude, position.coords.longitude);
+ var marker = new google.map.Marker({
+   position: {lat:position.coords.latitude, lng:position.coords.longitude},
+   map: map,
+   title: "You are here",
+   type: info
+ });
+});
+
+function initializeMap() {
   var mapDiv = document.getElementById('map');
   map = new google.maps.Map(mapDiv, {
       center: {lat: 37.77, lng: -122.45},
