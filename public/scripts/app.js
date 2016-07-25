@@ -31,10 +31,11 @@ $(document).ready(function() {
   });
 
   $locations.on('click', '.deleteBtn', function() {
+    console.log($(this).attr('data-id'));
     $.ajax({
       method: 'DELETE',
-      url:'/api/locations/'+$(this).attr('data-id'),
-      succcess: 'deleteLocationSuccess',
+      url:'/api/locations/' + $(this).attr('data-id'),
+      success: deleteLocationSuccess
     });
   });
 
@@ -67,7 +68,8 @@ function renderLocation(location) {
     var marker = new google.maps.Marker({
       position: {lat: location.lat, lng: location.long},
       map:map,
-      title: location.name
+      title: location.name,
+      icon: 'http://i.imgur.com/JJuKVOu.png'
     });
 
 }
@@ -79,28 +81,41 @@ function handleError(){
 
 function deleteLocationSuccess(json) {
   var location = json;
-  var locationId = location._id;
-
-  for(var index = 0; index < allLocations.length; index++) {
-    if(allLocations[index]._id === breweryId) {
-      allLocations.splice(index, 1);
-      break;
-    }
-  }
+  var deletedLocationId = location._id;
+  $('div[data-location-id='+ deletedLocationId + ']').remove();
 }
 
+
 function handleLocationEditClick(data) {
-  var locationId = location._id;
-  $('[]');
+  var $edit = $(this).closest(".beer-location");
+  //var $locationRow = $('[data-location-id=' +edit +']');
+  var locationId = $edit.data("location-id");
+  console.log('edit location', locationId);
+  var locationName = $edit.find('span.location-name').text();
+  //$edit.find('span.location-name').html('<')
+
+  // var data = {
+  //   name: $locationRow.find('.')
+  // }
+    $.ajax({
+      method: 'PUT',
+      url:'/api/locations/' + locationId,
+      success: saveLocationEditClick
+    });
+
+
+
+  // console.log('response to update', data);
+  // var locationId = data._id;
+  // $('[data-location-id=' +locationId +']').remove();
 }
 
 navigator.geolocation.getCurrentPosition(function(position) {
- console.log(position.coords.latitude, position.coords.longitude);
- var marker = new google.map.Marker({
+ var marker = new google.maps.Marker({
    position: {lat:position.coords.latitude, lng:position.coords.longitude},
    map: map,
    title: "You are here",
-   type: info
+   icon: 'http://i.imgur.com/zBvcK4r.png'
  });
 });
 
@@ -108,6 +123,6 @@ function initializeMap() {
   var mapDiv = document.getElementById('map');
   map = new google.maps.Map(mapDiv, {
       center: {lat: 37.77, lng: -122.45},
-      zoom: 12
+      zoom: 13
   });
 }

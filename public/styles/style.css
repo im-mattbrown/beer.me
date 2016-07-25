@@ -1,9 +1,14 @@
 body {
-  background-color: rgba(123, 13, 146);
+  background-color: rgb(243, 240, 239);
   text-align: center;
+  color: #3E4E50;
+
 }
-h1{
+.jumbotron h1{
   text-align: left;
+  font-size: 75px;
+  margin-top: 40px;
+  margin-bottom: 0px;
 }
 #map {
   width: 75%;
@@ -11,11 +16,33 @@ h1{
   margin-left: 13%
 }
 
-.filters{
-
+#delete {
+  background-color: #3E4E50;
+  font-weight: bold;
+  color: #C5C5C5;
 }
 
-#delete {
-  background-color: rgb (238,238,238);
-  font-weight: bold;
+.edit-location {
+  margin-right: 10px;
+  background-color: #006992;
+  color: #C5C5C5;
+}
+
+.bubbles {
+  background-image: url('http://i.imgur.com/lOT7dqs.png');
+}
+#singlebutton{
+  background-color: #27476E;
+  color: #C5C5C5;
+}
+.jumbotron {
+  background-image: url('http://i.imgur.com/ISJPv9I.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.taproom {
+  text-align: left;
+}
+legend{
+  font-size: 30px;
 }

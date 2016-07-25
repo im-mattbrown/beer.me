@@ -221,9 +221,9 @@ var beerPlaces= [
   },
   {
     name: "Monk's Kettle",
-    location: '1000 Great Highway San Francisco, CA 94103',
-    lat: 37.769464,
-    long: -122.510096,
+    location: '3141 16th St San Francisco, CA 94103',
+    lat: 37.764721,
+    long: -122.422986,
     rating: 0,
   },
   {

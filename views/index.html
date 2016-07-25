@@ -18,17 +18,18 @@
   <body>
     <div class="jumbotron">
       <div class="container">
-        <h1>Beer.me</h1>
+        <h1 class="header">Beer.me</h1>
       </div>
     </div>
-
+    <div class="bubbles"
     <div class="filters">
-      <span><button class="taproom" type="button" name="taproom">taproom</button><button class="brewpub" type="button" name="brewpub">brewpub</button><button class="brewery" type="button" name="brewery">brewery</button><button class="bottleshop" type="button" name="bottleshop">bottleshop</button></span>
+      <span class="buttons"><button class="taproom" type="button" name="taproom">taproom</button><button class="brewpub" type="button" name="brewpub">brewpub</button><button class="brewery" type="button" name="brewery">brewery</button><button class="bottleshop" type="button" name="bottleshop">bottleshop</button></span>
     </div>
 
 
-    <h2 class="destination">San Francisco Craft Beer Destinations </h2>
+    <h2 class="destination">San Francisco Craft Beer Places</h2>
     <div id="map"></div>
+    </div>
     <form class="form-horizontal" id="locationForm">
             <fieldset>
 
@@ -53,11 +54,27 @@
                 </div>
               </div>
 
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="latitude">Latitude</label>
+                <div class="col-md-4">
+                <input id="textinput" name="lat" type="text" placeholder="" class="form-control input-md">
+
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="longitude">Longitude</label>
+                <div class="col-md-4">
+                <input id="textinput" name="long" type="text" placeholder="" class="form-control input-md">
+
+                </div>
+              </div>
+
               <!-- Button -->
               <div class="form-group">
-                <label class="col-md-4 control-label" for="singlebutton">Log Location</label>
+                <label class="col-md-4 control-label" for="singlebutton"></label>
                 <div class="col-md-4">
-                  <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+                  <button id="singlebutton" name="singlebutton" class="btn btn-primary">Log.me</button>
                 </div>
               </div>
             </fieldset>
@@ -65,15 +82,15 @@
 
     <div id="locations">
       <script id="location-template" type="text/x-handlebars-template">
-
+        <div class="beer-location" data-location-id="{{_id}}">
           <hr>
           <p>
             <b>{{name}}</b>
             on {{location}}
-            <button type="button" name="button" class="deleteBtn btn pull-right" id="delete" data-id={{_id}}>Delete</button>
-            <button type="button" name="edit" class='btn btn-info edit-location pull-right'>Edit Location</button>
+            <button type="button" name="button" class="deleteBtn btn pull-right" id="delete" data-id="{{_id}}">Delete</button>
+            <button type="button" name="edit" class='btn btn-info edit-location pull-right' data-id="{{_id}}">Edit Location</button>
           </p>
-        
+        </div>
     </script>
     </div>
 </html>
