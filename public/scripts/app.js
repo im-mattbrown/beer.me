@@ -1,9 +1,11 @@
 console.log("sanity check");
-
+console.log(google);
 var template;
 var $locations;
 var $pins;
 var map;
+var allLocations = [];
+
 
 $(document).ready(function() {
   $locations = $('#locations');
@@ -30,15 +32,22 @@ $(document).ready(function() {
 
   function newLocationSuccess(json){
     $('#locationForm input').val('');
-    renderLocation(json);
+    allLocations.push(json);
+    renderLocation(allLocations);
   }
 
   function renderLocation(locations) {
     $locations.empty();
     console.log(locations);
     var html = template({locations: locations});
-
-    $locations.prepend(html);
+    locations.forEach(function (location){
+      var marker = new google.maps.Marker({
+        position: {lat: location.lat, lng: location.long},
+        map:map,
+        title: location.name
+      });
+    });
+    $locations.append(html);
   }
 
   function handleSuccess(json){
@@ -50,26 +59,22 @@ $(document).ready(function() {
   initMap();
 });
 
-// function createMarkers(locationArray, pin){
-//   locationArray.forEach(function(location){
-//     var tempLat = location.lat;
-//     var tempLng = location.long;
-//   });
-//     var tempMarker = new google.maps.Marker({
-//       position: new google.maps.LatLng(tempLat, tempLng),
-//       map: map,
-//       title: location.name,
-//     });
-// }
+function createMarkers(locationArray, pin){
+  locationArray.forEach(function(location){
+    var tempLat = location.lat;
+    var tempLng = location.long;
+  });
+    var tempMarker = new google.maps.Marker({
+      position: new google.maps.LatLng(tempLat, tempLng),
+      map: map,
+      title: location.name,
+    });
+}
+
 function initMap() {
   var mapDiv = document.getElementById('map');
-  var map = new google.maps.Map(mapDiv, {
+  map = new google.maps.Map(mapDiv, {
       center: {lat: 37.77, lng: -122.45},
       zoom: 12
-  });
-  var marker = new google.maps.Marker({
-          position: {lat: 37.77, lng: -122.45},
-          map: map,
-          title: 'Hello World!'
   });
 }
