@@ -15,7 +15,7 @@ function create(req, res) {
 }
 
 function show(req, res) {
-  db.Location.findById(req.params.locationId, function(err, foundLocation){
+  db.Location.findById(req.params.id, function(err, foundLocation){
     if(err) {console.log('locationsController.show error', err); }
     res.json(foundLocation);
   });
@@ -30,7 +30,7 @@ function destroy(req, res) {
 }
 
 function update(req, res) {
-  db.Location.findByIdAndUpdate(req.params.locationId, req.body, {new: true}, function(err, location){
+  db.Location.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, location){
     if (err) { return console.log("show error: " + err); }
     res.json(location);
   });
