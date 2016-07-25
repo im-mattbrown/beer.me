@@ -32,5 +32,9 @@ app.get('/api/locations/:locationId', controllers.locations.show);
 
 app.post('/api/locations', controllers.locations.create);
 
+app.delete('/api/locations/:locationId', controllers.locations.destroy);
+
+app.put('/api/locations:locationId', controllers.locations.update);
+
 //listen on port 3000
 app.listen(process.env.PORT || 3000);

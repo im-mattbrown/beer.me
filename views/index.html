@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/styles/style.css">
 
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZkuKWEN0cKHb8LLPVqaZxgbhXemNnzF4&callback=initMap"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 
@@ -26,8 +27,42 @@
     </div>
 
 
-    <h2> Craft Beer Destinations </h2>
+    <h2 class="destination"> Craft Beer Destinations </h2>
     <div id="map"></div>
+    <form class="form-horizontal" id="locationForm">
+            <fieldset>
+
+              <!-- Form Name -->
+              <legend>Add Craft Beer Spot</legend>
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="name">Location Name</label>
+                <div class="col-md-4">
+                <input id="name" name="name" type="text" placeholder="" class="form-control input-md" required="">
+
+                </div>
+              </div>
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="artistName">Address</label>
+                <div class="col-md-4">
+                <input id="textinput" name="artistName" type="text" placeholder="" class="form-control input-md">
+
+                </div>
+              </div>
+
+              <!-- Button -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="singlebutton">Log Location</label>
+                <div class="col-md-4">
+                  <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+
     <div id="locations">
       <script id="location-template" type="text/x-handlebars-template">
           {{#each locations}}

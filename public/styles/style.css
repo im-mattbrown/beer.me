@@ -1,7 +1,16 @@
 body {
   background-color: rgba(123, 13, 146);
+  text-align: center;
+}
+h1{
+  text-align: left;
+}
+#map {
+  width: 75%;
+  height: 600px;
+  margin-left: 12.5%
 }
 
-#map {
-  height: 100%;
+.filters{
+
 }
