@@ -17,6 +17,7 @@ A craft beer destination mapping project for San Francisco. Allows users to see 
 -Unique profile pages where users can track places they have been
 -A rating system that aggregates user ratings of locations
 -Responsive mobile design
+-Ability to filter the map by type of location
 
 ##ScreenShot
 ![Alt text](http://i.imgur.com/2Ivb5fr.png)
