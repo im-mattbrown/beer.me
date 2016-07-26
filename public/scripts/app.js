@@ -15,11 +15,10 @@ $(document).ready(function() {
       url: '/api/locations',
       dataType: 'json',
       success: handleSuccess,
-    });
+  });
 
   $('#locationForm').on('submit', function(e){
     e.preventDefault();
-    console.log("Submit Clicked...");
     $.ajax({
       method: 'POST',
       url: '/api/locations',
@@ -27,11 +26,9 @@ $(document).ready(function() {
       success: newLocationSuccess
     });
     $('#locationForm input').val('');
-
   });
 
   $locations.on('click', '.deleteBtn', function() {
-    console.log($(this).attr('data-id'));
     $.ajax({
       method: 'DELETE',
       url:'/api/locations/' + $(this).attr('data-id'),
@@ -86,7 +83,7 @@ function deleteLocationSuccess(json) {
 }
 
 
-function handleLocationEditClick(data) {
+function handleLocationEditClick(e) {
   var $edit = $(this).closest(".beer-location");
   //var $locationRow = $('[data-location-id=' +edit +']');
   var locationId = $edit.data("location-id");
@@ -100,7 +97,7 @@ function handleLocationEditClick(data) {
     $.ajax({
       method: 'PUT',
       url:'/api/locations/' + locationId,
-      success: saveLocationEditClick
+      success: saveLocationEdit
     });
 
 
@@ -110,6 +107,9 @@ function handleLocationEditClick(data) {
   // $('[data-location-id=' +locationId +']').remove();
 }
 
+function saveLocationEdit(data) {
+
+}
 navigator.geolocation.getCurrentPosition(function(position) {
  var marker = new google.maps.Marker({
    position: {lat:position.coords.latitude, lng:position.coords.longitude},
