@@ -1,8 +1,6 @@
 var template;
 var $locations;
 var map;
-//var allLocations = [];
-
 
 $(document).ready(function() {
   $locations = $('#locations');
@@ -73,15 +71,15 @@ function newLocationSuccess(json){
 // takes ONE single location and renders it to the page
 function renderLocation(location) {
 
-    var html = template(location);
-    $locations.append(html);
+  var html = template(location);
+  $locations.append(html);
 
-    var marker = new google.maps.Marker({
-      position: {lat: location.lat, lng: location.long},
-      map:map,
-      title: location.name + " on " + location.location,
-      icon: 'http://i.imgur.com/JJuKVOu.png'
-    });
+  var marker = new google.maps.Marker({
+    position: {lat: location.lat, lng: location.long},
+    map:map,
+    title: location.name + " on " + location.location,
+    icon: 'http://i.imgur.com/JJuKVOu.png'
+  });
 
 }
 
