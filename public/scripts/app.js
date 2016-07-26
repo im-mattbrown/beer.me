@@ -18,14 +18,31 @@ $(document).ready(function() {
   });
 
   $('#locationForm').on('submit', function(e){
+
+    var data = $(this).serialize();
+    console.log(data);
     e.preventDefault();
+    var locId = data.split('&');
+    var locationId = locId[5].split('=')[1];
+    console.log((locationId));
+    var isEdit = data.split('isEdit=')[1];
+    if(isEdit === "true"){
+    $.ajax({
+      method: 'PUT',
+      url: '/api/locations/'+locationId,
+      data: data,
+    });
+    $('#locationForm input').val('');
+    location.reload();
+  } else {
     $.ajax({
       method: 'POST',
       url: '/api/locations',
-      data: $(this).serialize(),
+      data: data,
       success: newLocationSuccess
     });
     $('#locationForm input').val('');
+    }
   });
 
   $locations.on('click', '.deleteBtn', function() {
@@ -53,7 +70,6 @@ function handleSuccess(json){
 function newLocationSuccess(json){
   var location = json;
   renderLocation(location);
-
 }
 
 // takes ONE single location and renders it to the page
@@ -65,7 +81,7 @@ function renderLocation(location) {
     var marker = new google.maps.Marker({
       position: {lat: location.lat, lng: location.long},
       map:map,
-      title: location.name,
+      title: location.name + " on " + location.location,
       icon: 'http://i.imgur.com/JJuKVOu.png'
     });
 
@@ -95,11 +111,19 @@ function handleLocationEditClick(e) {
   //   name: $locationRow.find('.')
   // }
     $.ajax({
-      method: 'PUT',
-      url:'/api/locations/' + locationId,
-      success: saveLocationEdit
+      method: 'GET',
+      url:'/api/locations/' + locationId +'/info',
+      success: locationEdit
     });
-
+function locationEdit(data) {
+  $('#name').val(data.name);
+  $('#addressinput').val(data.location);
+  $('#latinput').val(data.lat);
+  $('#longinput').val(data.long);
+  $('#rateinput').val(data.rating);
+  $('#isEdit').val(true);
+  $('#locationId').val(data._id);
+}
 
 
   // console.log('response to update', data);

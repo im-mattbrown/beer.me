@@ -38,10 +38,17 @@ function update(req, res) {
   });
 }
 
+function info(req, res) {
+  db.Location.findById(req.params.id, function(err, foundLocation){
+    res.json(foundLocation);
+  });
+}
+
 module.exports = {
   index: index,
   create: create,
   show: show,
   destroy: destroy,
-  update: update
+  update: update,
+  info: info
 };

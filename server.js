@@ -36,5 +36,7 @@ app.delete('/api/locations/:id', controllers.locations.destroy);
 
 app.put('/api/locations/:id', controllers.locations.update);
 
+app.get('/api/locations/:id/info', controllers.locations.info);
+
 //listen on port 3000
 app.listen(process.env.PORT || 3000);
