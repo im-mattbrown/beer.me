@@ -1,8 +1,7 @@
-console.log("sanity check");
 var template;
 var $locations;
 var map;
-var allLocations = [];
+//var allLocations = [];
 
 
 $(document).ready(function() {
@@ -18,14 +17,12 @@ $(document).ready(function() {
   });
 
   $('#locationForm').on('submit', function(e){
-
     var data = $(this).serialize();
-    console.log(data);
     e.preventDefault();
     var locId = data.split('&');
     var locationId = locId[5].split('=')[1];
-    console.log((locationId));
     var isEdit = data.split('isEdit=')[1];
+    //if this is an edited post
     if(isEdit === "true"){
     $.ajax({
       method: 'PUT',
@@ -34,7 +31,8 @@ $(document).ready(function() {
     });
     $('#locationForm input').val('');
     location.reload();
-  } else {
+    //else this is a new post
+    } else {
     $.ajax({
       method: 'POST',
       url: '/api/locations',
@@ -87,7 +85,6 @@ function renderLocation(location) {
 
 }
 
-
 function handleError(){
   console.log('error loading locations');
 }
@@ -98,23 +95,15 @@ function deleteLocationSuccess(json) {
   $('div[data-location-id='+ deletedLocationId + ']').remove();
 }
 
-
 function handleLocationEditClick(e) {
   var $edit = $(this).closest(".beer-location");
-  //var $locationRow = $('[data-location-id=' +edit +']');
   var locationId = $edit.data("location-id");
-  console.log('edit location', locationId);
-  var locationName = $edit.find('span.location-name').text();
-  //$edit.find('span.location-name').html('<')
-
-  // var data = {
-  //   name: $locationRow.find('.')
-  // }
-    $.ajax({
-      method: 'GET',
-      url:'/api/locations/' + locationId +'/info',
-      success: locationEdit
-    });
+  $.ajax({
+    method: 'GET',
+    url:'/api/locations/' + locationId +'/info',
+    success: locationEdit
+  });
+}
 function locationEdit(data) {
   $('#name').val(data.name);
   $('#addressinput').val(data.location);
@@ -123,12 +112,6 @@ function locationEdit(data) {
   $('#rateinput').val(data.rating);
   $('#isEdit').val(true);
   $('#locationId').val(data._id);
-}
-
-
-  // console.log('response to update', data);
-  // var locationId = data._id;
-  // $('[data-location-id=' +locationId +']').remove();
 }
 
 function saveLocationEdit(data) {
@@ -147,6 +130,10 @@ function initializeMap() {
   var mapDiv = document.getElementById('map');
   map = new google.maps.Map(mapDiv, {
       center: {lat: 37.77, lng: -122.45},
-      zoom: 13
+      zoom: 13,
+      scrollwheel: false,
+  });
+  map.addListener('click', function() {
+    map.set('scrollwheel', true);
   });
 }

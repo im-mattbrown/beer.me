@@ -6,9 +6,11 @@ body {
 }
 .jumbotron h1{
   text-align: left;
-  font-size: 75px;
+  font-size: 90px;
   margin-top: 40px;
   margin-bottom: 0px;
+  font-family: 'Schoolbell', cursive;
+  text-shadow: 3px 3px 3px rgba(255, 255, 255, 0.9);
 }
 #map {
   width: 75%;
@@ -20,6 +22,7 @@ body {
   background-color: #3E4E50;
   font-weight: bold;
   color: #C5C5C5;
+  margin-right: 10px;
 }
 
 .edit-location {
@@ -37,7 +40,7 @@ body {
   color: #C5C5C5;
 }
 .jumbotron {
-  background-image: url('http://i.imgur.com/ISJPv9I.png');
+  background-image: url('http://i.imgur.com/SV5rznx.jpg');
   background-size: cover;
   background-repeat: no-repeat;
 }

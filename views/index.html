@@ -6,6 +6,7 @@
 
     <title>beer.me</title>
 
+    <link href='https://fonts.googleapis.com/css?family=Schoolbell' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/styles/style.css">
 
@@ -27,7 +28,8 @@
     </div>
 
 
-    <h2 class="destination">San Francisco Craft Beer Places</h2>
+    <h2 class="destination">San Francisco's Craft Beer Map</h2>
+    <h5>(click map to activate zoom)</h5>
     <div id="map"></div>
     </div>
     <form class="form-horizontal" id="locationForm">
@@ -92,7 +94,7 @@
               </div>
             </fieldset>
           </form>
-
+    <h3>Locations</h3>
     <div id="locations">
       <script id="location-template" type="text/x-handlebars-template">
         <div class="beer-location" data-location-id="{{_id}}">
@@ -100,9 +102,9 @@
           <p>
             <b>{{name}}</b>
             on {{location}}
-            <b>rating</b>- {{rating}}/100
+            <b>rated</b>- {{rating}}/100
             <button type="button" name="button" class="deleteBtn btn pull-right" id="delete" data-id="{{_id}}">Delete</button>
-            <button type="button" name="edit" class='btn btn-info edit-location pull-right' data-id="{{_id}}">Edit Location</button>
+            <a href='#locationForm'><button type="button" name="edit" class='btn btn-info edit-location pull-right' data-id="{{_id}}">Edit Location</button></a>
           </p>
         </div>
     </script>
