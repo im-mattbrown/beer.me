@@ -22,21 +22,22 @@ $(document).ready(function() {
     var isEdit = data.split('isEdit=')[1];
     //if this is an edited post
     if(isEdit === "true"){
-    $.ajax({
-      method: 'PUT',
-      url: '/api/locations/'+locationId,
-      data: data,
-    });
+      $.ajax({
+        method: 'PUT',
+        url: '/api/locations/'+locationId,
+        data: data,
+        success: putSuccess
+      });
     $('#locationForm input').val('');
-    location.reload();
+    //location.reload();
     //else this is a new post
     } else {
-    $.ajax({
-      method: 'POST',
-      url: '/api/locations',
-      data: data,
-      success: newLocationSuccess
-    });
+      $.ajax({
+        method: 'POST',
+        url: '/api/locations',
+        data: data,
+        success: newLocationSuccess
+      });
     $('#locationForm input').val('');
     }
   });
@@ -61,6 +62,18 @@ function handleSuccess(json){
     renderLocation(location);
 
   });
+}
+
+function putSuccess (data){
+  $.ajax({
+      method: 'GET',
+      url: '/api/locations',
+      dataType: 'json',
+      success: handleSuccess,
+  });
+  console.log(data + 'putSuccess data');
+  renderLocation(data);
+
 }
 
 function newLocationSuccess(json){
@@ -112,9 +125,6 @@ function locationEdit(data) {
   $('#locationId').val(data._id);
 }
 
-function saveLocationEdit(data) {
-
-}
 navigator.geolocation.getCurrentPosition(function(position) {
  var marker = new google.maps.Marker({
    position: {lat:position.coords.latitude, lng:position.coords.longitude},
