@@ -1,4 +1,6 @@
-# brewfinder
+![Alt text](http://i.imgur.com/SV5rznx.jpg)
+
+# beer.me
 A craft beer destination mapping project for San Francisco. Allows users to see nearly 50 pre-loaded spots that they can view on a map, edit information for and add new places to.
 
 ##Technologies Used
